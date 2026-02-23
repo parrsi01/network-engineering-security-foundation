@@ -20,10 +20,10 @@ cat > /tmp/lab08/wg0.conf <<'CFG'
 [Interface]
 Address = 10.99.8.1/24
 ListenPort = 51820
-PrivateKey = REPLACE_WITH_GENERATED_PRIVATE_KEY
+PrivateKey = qYHBGFX+Xq5sM8VvVQ4S4KfVJQ1wQ8YJkQn4M2h4aUQ=
 
 [Peer]
-PublicKey = REPLACE_WITH_PEER_PUBLIC_KEY
+PublicKey = U0aH1rQ5tR4dKj8G8z6pLwq8v7L5sV1X2m9FqT0aN3o=
 Endpoint = 198.51.100.10:51820
 AllowedIPs = 10.99.8.2/32, 10.88.0.0/24
 PersistentKeepalive = 25
@@ -51,7 +51,7 @@ Expected output snippets:
 
 In WireGuard, `AllowedIPs` functions as both traffic selector and route policy, so mistakes here often appear as routing failures rather than crypto failures.
 
-### Step 2: Generate real keys locally and replace example key markers (safe local test)
+### Step 2: Generate real keys locally and replace the example keys (safe local test)
 
 **Exact commands**
 

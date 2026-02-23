@@ -6,7 +6,7 @@
 |---|---|---|
 | `Handshake present but remote subnet unreachable` | `AllowedIPs` missing remote LAN prefix | Add the remote subnet to `AllowedIPs`, then confirm route selection to that subnet uses `wg0`. |
 | `All traffic unexpectedly routed to VPN` | Accidental `AllowedIPs = 0.0.0.0/0` full-tunnel configuration | Scope `AllowedIPs` to only required subnets unless full tunnel is intentional. |
-| ``wg-quick up` fails on example key markers` | Config contains non-real keys used for documentation | Generate keys with `wg genkey`/`wg pubkey` and replace example key markers before interface startup. |
+| ``wg-quick up` fails using the example keys` | Config contains non-real keys used for documentation | Generate keys with `wg genkey`/`wg pubkey` and replace the example keys before interface startup. |
 
 ## Additional Notes
 
