@@ -1,0 +1,38 @@
+# Linux/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+.vscode/
+.idea/
+
+# Logs and runtime output
+*.log
+logs/
+*.pid
+*.out
+*.err
+
+# Packet captures and traces
+*.pcap
+*.pcapng
+*.cap
+captures/
+
+# Python cache (for helper scripts/tests if added later)
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Archives
+*.zip
+*.tar
+*.gz
+*.tgz
+
+# Lab-specific artifacts
+*.state
+*.trace
+*.session
