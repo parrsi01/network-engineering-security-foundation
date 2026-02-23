@@ -209,6 +209,21 @@ else
   fail "Python helper syntax checks"
 fi
 
+# Unit tests (if present)
+if [[ -d tests ]] && find tests -type f -name 'test_*.py' | grep -q .; then
+  test_tmp="$(mktemp -d)"
+  if PYTHONPYCACHEPREFIX="$test_tmp" python3 -m unittest discover -s tests -p 'test_*.py' -v >/tmp/validate_repo_unittest.out 2>&1; then
+    pass "Unit tests (python3 -m unittest)"
+  else
+    cat /tmp/validate_repo_unittest.out
+    fail "Unit tests (python3 -m unittest)"
+  fi
+  rm -rf "$test_tmp"
+  rm -f /tmp/validate_repo_unittest.out
+else
+  warn "No unit tests found in tests/ (skipping unittest run)"
+fi
+
 # Lightweight "runnability" confirmation: structural + validation scripts + mandatory sections.
 # Full runtime execution of all labs is intentionally not forced here because many labs require sudo
 # and modify local namespace/firewall state.
