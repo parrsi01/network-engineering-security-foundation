@@ -183,11 +183,21 @@ fi
 
 # Python syntax checks for helper scripts (if any).
 py_failed=0
+pycache_tmp=""
+cleanup_pycache_tmp() {
+  if [[ -n "${pycache_tmp:-}" && -d "${pycache_tmp:-}" ]]; then
+    rm -rf "$pycache_tmp"
+  fi
+}
+trap cleanup_pycache_tmp EXIT
 while IFS= read -r -d '' pyf; do
-  if ! python3 -m py_compile "$pyf" >/dev/null 2>&1; then
+  pycache_tmp="$(mktemp -d)"
+  if ! PYTHONPYCACHEPREFIX="$pycache_tmp" python3 -m py_compile "$pyf" >/dev/null 2>&1; then
     echo "Python syntax error: $pyf"
     py_failed=1
   fi
+  rm -rf "$pycache_tmp"
+  pycache_tmp=""
 done < <(find scripts -maxdepth 1 -type f -name '*.py' -print0 2>/dev/null)
 
 if [[ $py_failed -eq 0 ]]; then

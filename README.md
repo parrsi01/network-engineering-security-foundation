@@ -1,5 +1,9 @@
 # Network Engineering Security Foundation
 
+![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)
+[![Lint](https://github.com/parrsi01/network-engineering-security-foundation/actions/workflows/lint.yml/badge.svg)](https://github.com/parrsi01/network-engineering-security-foundation/actions/workflows/lint.yml)
+[![CI](https://github.com/parrsi01/network-engineering-security-foundation/actions/workflows/ci.yml/badge.svg)](https://github.com/parrsi01/network-engineering-security-foundation/actions/workflows/ci.yml)
+
 Enterprise-structured network engineering and network security training repository focused on operational competence on Ubuntu Linux.
 
 ## Purpose

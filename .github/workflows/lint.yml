@@ -1,0 +1,59 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Bash syntax check (top-level validator)
+        run: bash -n validate_repo.sh
+
+      - name: Bash syntax check (scripts and lab validators)
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' f; do
+            bash -n "$f"
+          done < <(find scripts labs -type f -name '*.sh' -print0)
+
+      - name: Python syntax check (helper scripts)
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          py_files=(scripts/*.py)
+          if ((${#py_files[@]} > 0)); then
+            python -m py_compile "${py_files[@]}"
+          else
+            echo "No Python helper scripts to compile"
+          fi
+
+      - name: Placeholder/template marker scan
+        shell: bash
+        run: |
+          set -euo pipefail
+          if command -v rg >/dev/null 2>&1; then
+            ! rg -n "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
+              --glob '!**/.git/**' \
+              --glob '!validate_repo.sh'
+          else
+            ! grep -RInE "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
+              --exclude-dir=.git \
+              --exclude=validate_repo.sh
+          fi
