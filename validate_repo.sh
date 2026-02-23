@@ -149,7 +149,8 @@ fi
 if command -v rg >/dev/null 2>&1; then
   if rg -n "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
       --glob '!**/.git/**' \
-      --glob '!validate_repo.sh' >/tmp/validate_repo_placeholders.out; then
+      --glob '!validate_repo.sh' \
+      --glob '!.github/workflows/**' >/tmp/validate_repo_placeholders.out; then
     cat /tmp/validate_repo_placeholders.out
     fail "No placeholder/template markers remain"
   else
@@ -157,7 +158,9 @@ if command -v rg >/dev/null 2>&1; then
   fi
 else
   if grep -RInE "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
-      --exclude-dir=.git --exclude=validate_repo.sh >/tmp/validate_repo_placeholders.out; then
+      --exclude-dir=.git \
+      --exclude=validate_repo.sh \
+      --exclude=*.yml >/tmp/validate_repo_placeholders.out; then
     cat /tmp/validate_repo_placeholders.out
     fail "No placeholder/template markers remain"
   else

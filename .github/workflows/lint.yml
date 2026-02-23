@@ -51,9 +51,11 @@ jobs:
           if command -v rg >/dev/null 2>&1; then
             ! rg -n "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
               --glob '!**/.git/**' \
-              --glob '!validate_repo.sh'
+              --glob '!validate_repo.sh' \
+              --glob '!.github/workflows/**'
           else
             ! grep -RInE "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
               --exclude-dir=.git \
-              --exclude=validate_repo.sh
+              --exclude=validate_repo.sh \
+              --exclude=*.yml
           fi
