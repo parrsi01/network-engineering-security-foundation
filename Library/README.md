@@ -33,6 +33,9 @@ Use it as a companion during labs and incident tickets:
 | 08 | [Troubleshooting and Incident Response](./08_troubleshooting_and_incident_response.md) | decision trees, ticket triage, blast radius |
 | 09 | [Security Review and Exposure](./09_security_review_and_exposure.md) | ports, attack surface, rule intent vs behavior |
 | 10 | [Operational Runbooks and Validation](./10_operational_runbooks_and_validation.md) | checklists, validation scripts, documentation hygiene |
+| 11 | [Segmentation and DHCP](./11_segmentation_and_dhcp.md) | VLANs, bridges, DHCP, segmentation policy checks |
+| 12 | [Security Monitoring and Triage](./12_security_monitoring_and_triage.md) | Suricata, Zeek, log correlation, alert triage |
+| 13 | [Advanced Infrastructure Services](./13_advanced_infrastructure_services.md) | OSPF, VRRP, Keepalived, HAProxy health checks |
 | 00 | [Course Q&A Sheet](./00_full_course_q_and_a_sheet.md) | interview and review prompts |
 | 00 | [CLI Demo Sheet](./00_full_course_cli_demo_sheet.md) | ordered command walkthroughs |
 

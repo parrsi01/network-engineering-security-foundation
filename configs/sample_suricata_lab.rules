@@ -1,0 +1,4 @@
+# sample_suricata_lab.rules
+# Simple lab signatures (example only; tune in real environments).
+alert tcp any any -> $HOME_NET 8080 (msg:"LAB HTTP access observed"; sid:900001; rev:1;)
+alert tcp any any -> $HOME_NET any (flags:S; msg:"LAB TCP SYN observed"; sid:900002; rev:1;)

@@ -16,6 +16,9 @@ This repository is a progressive, version-controlled curriculum for building rea
 The structure mirrors how infrastructure teams work in production:
 
 - `docs/` for reference knowledge and operational concepts
+- `docs/segmentation/` for VLAN/DHCP/segmented services progression
+- `docs/security_monitoring/` for Suricata/Zeek/log triage progression
+- `docs/advanced_infrastructure/` for OSPF/VRRP/load balancer progression
 - `labs/` for reproducible exercises with validation and troubleshooting paths
 - `incidents/` for ticket-style drills
 - `library/` for quick references and checklists
@@ -42,7 +45,13 @@ Recommended packages for full lab coverage:
 
 ```bash
 sudo apt update
-sudo apt install -y iproute2 iputils-ping dnsutils net-tools traceroute tcpdump ufw iptables iptables-persistent wireguard-tools curl jq netcat-openbsd
+sudo apt install -y iproute2 iputils-ping dnsutils net-tools traceroute tcpdump ufw iptables iptables-persistent wireguard-tools curl jq netcat-openbsd bridge-utils vlan dnsmasq isc-dhcp-client
+```
+
+Optional advanced progression packages (larger install footprint):
+
+```bash
+sudo apt install -y suricata zeek haproxy keepalived frr frr-pythontools || true
 ```
 
 ## Curriculum Progression
@@ -50,7 +59,10 @@ sudo apt install -y iproute2 iputils-ping dnsutils net-tools traceroute tcpdump 
 1. Foundations (`docs/fundamentals/`, Labs 01-03)
 2. Operational Skills (`docs/troubleshooting/`, Labs 04-08)
 3. Security Awareness + Review (`docs/security/`, Lab 09, `incidents/`)
-4. Repetition via scripts, validation, and ticket drills
+4. Segmentation & Services Progression (`docs/segmentation/`, new Labs 10+)
+5. Security Monitoring & Triage Progression (`docs/security_monitoring/`, Suricata/Zeek labs)
+6. Advanced Infrastructure Progression (`docs/advanced_infrastructure/`, OSPF/VRRP/LB labs)
+7. Repetition via scripts, validation, and ticket drills
 
 ## Lab Standards (Mandatory)
 

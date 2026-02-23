@@ -1,0 +1,5 @@
+{"timestamp":"2026-02-23T15:00:01.111111+0000","event_type":"alert","src_ip":"10.12.10.44","src_port":51514,"dest_ip":"10.12.20.10","dest_port":8080,"proto":"TCP","alert":{"signature_id":2100498,"signature":"ET SCAN Potential VNC Scan 5900-5920","severity":2}}
+{"timestamp":"2026-02-23T15:00:02.211111+0000","event_type":"alert","src_ip":"10.12.10.44","src_port":51515,"dest_ip":"10.12.20.10","dest_port":8080,"proto":"TCP","alert":{"signature_id":2100498,"signature":"ET SCAN Potential VNC Scan 5900-5920","severity":2}}
+{"timestamp":"2026-02-23T15:00:03.311111+0000","event_type":"dns","src_ip":"10.12.10.44","dest_ip":"10.12.20.53","dns":{"rrname":"suspicious-updates.example","type":"query"}}
+{"timestamp":"2026-02-23T15:00:04.411111+0000","event_type":"alert","src_ip":"10.12.10.44","src_port":51520,"dest_ip":"10.12.20.10","dest_port":8080,"proto":"TCP","alert":{"signature_id":2010935,"signature":"ET POLICY curl User-Agent Outbound","severity":3}}
+{"timestamp":"2026-02-23T15:00:05.511111+0000","event_type":"flow","src_ip":"10.12.10.44","src_port":51520,"dest_ip":"10.12.20.10","dest_port":8080,"proto":"TCP"}

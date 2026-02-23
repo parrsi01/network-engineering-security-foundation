@@ -1,0 +1,5 @@
+ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	proto	service	duration	orig_bytes	resp_bytes	conn_state
+2026-02-23T15:00:01Z	C1	10.12.10.44	51514	10.12.20.10	8080	tcp	http	0.002	60	0	S0
+2026-02-23T15:00:02Z	C2	10.12.10.44	51515	10.12.20.10	8080	tcp	http	0.002	60	0	S0
+2026-02-23T15:00:04Z	C3	10.12.10.44	51520	10.12.20.10	8080	tcp	http	0.120	480	920	SF
+2026-02-23T15:00:10Z	C4	10.12.10.60	53111	10.12.20.10	22	tcp	-	0.001	60	0	REJ
