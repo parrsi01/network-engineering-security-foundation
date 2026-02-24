@@ -50,3 +50,9 @@ This `Library/` directory intentionally follows the same top-level reference pat
 > **Author** — Codex CLI (repository generation session)
 > **Format** — Operational reference + command mapping
 > **Last Updated** — 2026-02-23
+
+---
+
+## Single-File Master Guide
+
+- [Full Course Master Guide (single-file notes + diagrams)](./00_full_course_master_guide.md)
