@@ -65,11 +65,25 @@ section "Repository Validation"
 
 run_check "Git repository present" git rev-parse --is-inside-work-tree
 run_check "README.md present" test -f README.md
+run_check "LICENSE present" test -f LICENSE
+run_check "Makefile present" test -f Makefile
+run_check "pyproject.toml present" test -f pyproject.toml
+run_check "requirements.in present" test -f requirements.in
+run_check "requirements.txt present" test -f requirements.txt
 run_check "Top-level folders present" test -d docs
 run_check "Top-level folders present (labs)" test -d labs
 run_check "Top-level folders present (incidents)" test -d incidents
 run_check "Top-level folders present (library)" test -d library
 run_check "Top-level folders present (Library)" test -d Library
+run_check "Docs index present" test -f docs/README.md
+run_check "docs/PROJECT_MANUAL.md present" test -f docs/PROJECT_MANUAL.md
+run_check "docs/CORE_CONCEPTS.md present" test -f docs/CORE_CONCEPTS.md
+run_check "docs/OFFLINE_INDEX.md present" test -f docs/OFFLINE_INDEX.md
+run_check "docs/LESSON_EXECUTION_COMPANION.md present" test -f docs/LESSON_EXECUTION_COMPANION.md
+run_check "docs/LESSON_RESEARCH_ANALYSIS_COMPANION.md present" test -f docs/LESSON_RESEARCH_ANALYSIS_COMPANION.md
+run_check "docs/REPOSITORY_STATUS_REPORT.md present" test -f docs/REPOSITORY_STATUS_REPORT.md
+run_check "docs/CV_READY_SUMMARY.md present" test -f docs/CV_READY_SUMMARY.md
+run_check "docs/PORTFOLIO_SKILL_MAPPING.md present" test -f docs/PORTFOLIO_SKILL_MAPPING.md
 
 if python3 - <<'PY'
 from pathlib import Path
@@ -149,6 +163,7 @@ fi
 if command -v rg >/dev/null 2>&1; then
   if rg -n "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
       --glob '!**/.git/**' \
+      --glob '!Makefile' \
       --glob '!validate_repo.sh' \
       --glob '!.github/workflows/**' >/tmp/validate_repo_placeholders.out; then
     cat /tmp/validate_repo_placeholders.out
@@ -159,6 +174,7 @@ if command -v rg >/dev/null 2>&1; then
 else
   if grep -RInE "TODO|TBD|FIXME|PLACEHOLDER|REPLACE_WITH_|lorem ipsum" . \
       --exclude-dir=.git \
+      --exclude=Makefile \
       --exclude=validate_repo.sh \
       --exclude=*.yml >/tmp/validate_repo_placeholders.out; then
     cat /tmp/validate_repo_placeholders.out

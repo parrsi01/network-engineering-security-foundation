@@ -1,0 +1,5 @@
+# This repository is intentionally stdlib-first.
+# Add optional tooling here when needed (example):
+# ruff
+# black
+# pytest
